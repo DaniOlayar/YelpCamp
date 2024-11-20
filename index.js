@@ -1,6 +1,7 @@
 import path from "path";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import ejsMate from "ejs-mate";
 import express from "express";
 import { fileURLToPath } from "url";
 import methodOverride from "method-override";
@@ -16,6 +17,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
